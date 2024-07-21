@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sample Quotation</title>
+    <meta name="description" content="Company quotation">
+    <meta name="author" content="SitePoint">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <style>
+        /* Your existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select,
+        input[type="number"],
+        button {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        tfoot {
+            font-weight: bold;
+        }
+
+        #productList td,
+        #totalPrice {
+            text-align: right;
+        }
+
+        #totalPrice {
+            font-size: 18px;
+            color: #333;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .quotation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quotation-header h1 {
+            font-size: 36px;
+        }
+
+        .quotation-header img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .quotation-details {
+            margin-top: 20px;
+        }
+
+        .quotation-details h3 {
+            margin-top: 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row quotation-header">
+            <div>
+                <h2>VMS HACKER</h2>
+                <p>
+                    Bangkok<br>THAILAND<br>10160<br>
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> : 012-345-67890<br>
+                    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span> : 012-345-67890
+                </p>
+            </div>
+            <div class="text-center">
+                <h1>QUOTATION</h1>
+                <img src="https://admissions.au.edu/wp-content/uploads/2019/08/science.jpg" alt="Logo">
+            </div>
+        </div>
+        <div class="row quotation-details">
+            <div class="col-sm-6">
+                <h3>Customer:</h3>
+                <p>
+                    <b>Eakkasit Sompee</b><br>
+                    Bangkok<br>
+                    Bangkae<br>
+                    10160
+                </p>
+            </div>
+            <div class="col-sm-6 text-right">
+                <h3>Quotation Details:</h3>
+                <p>
+                    Quotation No: 000<br>
+                    Date: 21/07/2024<br>
+                    Room no: 000
+                </p>
+            </div>
+        </div>
+
+        <form id="accessoryForm">
+            <label for="accessory">Select an accessory:</label>
+            <select id="accessory">
+                <option value="100">Car Cover</option>
+                <option value="200">Floor Mats</option>
+                <option value="30">Seat Covers</option>
+                <option value="40">Phone Holder</option>
+            </select>
+            <br>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" min="1" value="1">
+            <br>
+            <button type="button" id="addToProductList">Add</button>
+        </form>
+
+        <table class="table table-striped table-bordered table-condensed" id="quotationTable">
+            <thead>
+                <tr>
+                    <th>Qty</th>
+                    <th>Description</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="productList">
+                <!-- Product list items will be added here dynamically -->
+            </tbody>
+            <tfoot>
+                <tr id="sub-total">
+                    <td colspan="4" class="text-right">Subtotal</td>
+                    <td id="subTotal">0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-right">VAT</td>
+                    <td id="vat">0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-right">Shipping & Handling</td>
+                    <td id="shippingHandling">0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-right">Total Due</td>
+                    <td id="total">0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <p>
+            <b>Make all checks payable to:</b><br>
+            <i>au.edu</i><br>
+            <b>If you have any questions concerning this invoice, call:</b><br>
+            assumption.com<br>
+            <i>012-345-67890</i><br>
+            <b>THANK YOU FOR YOU BUSINESS</b><br>
+            Eakkasit Sompee<br>
+        </p>
+        <footer class="text-center">ben18278.github.io</footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var vatRate = 0.07; // 7% VAT rate
+
+        $(document).ready(function() {
+            $('#addToProductList').click(function() {
+                var accessoryName = $('#accessory option:selected').text();
+                var accessoryPrice = Number($('#accessory').val());
+                var amount = Number($('#amount').val());
+
+                var newRow = $('<tr>');
+                newRow.append('<td class="text-center">' + amount + '</td>');
+                newRow.append('<td>' + accessoryName + '</td>');
+                newRow.append('<td class="text-right">' + accessoryPrice.toFixed(2) + '</td>');
+
+                // Calculate price excluding VAT
+                var priceExVat = accessoryPrice * amount;
+                newRow.append('<td class="text-right">' + priceExVat.toFixed(2) + '</td>');
+
+                // Add delete button
+                newRow.append('<td><button type="button" class="btn btn-danger btn-xs deleteBtn">Delete</button></td>');
+
+                // Append row to the product list
+                $('#productList').append(newRow);
+
+                // Update totals
+                updateTotals();
+            });
+
+            // Delegate event for dynamically added delete buttons
+            $('#productList').on('click', '.deleteBtn', function() {
+                $(this).closest('tr').remove();
+                updateTotals();
+            });
+
+            function updateTotals() {
+                var subTotal = 0;
+                $('#productList tr').each(function() {
+                    var rowTotal = parseFloat($(this).find('td:eq(3)').text());
+                    subTotal += isNaN(rowTotal) ? 0 : rowTotal;
+                });
+
+                var vatAmount = subTotal * vatRate;
+                var totalDue = subTotal + vatAmount;
+
+                $('#subTotal').text(subTotal.toFixed(2));
+                $('#vat').text(vatAmount.toFixed(2));
+                $('#total').text(totalDue.toFixed(2));
+            }
+        });
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+
+</html>
